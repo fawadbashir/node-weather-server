@@ -10,7 +10,7 @@ const foreCast = (longitude, latitude, callback) => {
         } else if (!response.body.currently) {
             callback('unable to find forecast. Try another search', undefined)
         } else {
-            callback(undefined, ` ${response.body.hourly.summary} Currently ${response.body.currently.temperature} degrees out. There is  ${response.body.currently.precipProbability}%  chance of Rain. ${response.body.daily.summary}`)
+            callback(undefined, ` ${response.body.hourly.summary} Currently ${response.body.currently.temperature} degrees out. This high today is ${response.body.daily.data[0].temperatureHigh} with a low of ${response.body.daily.data[0].temperatureLow}. And There is  ${response.body.currently.precipProbability}%  chance of Rain. ${response.body.daily.summary}`)
         }
     })
 }
